@@ -89,7 +89,7 @@ let fname = "Jonathan";
 for (const f of fname) {
     console.log(f);
 }
-*/
+
 
 
 
@@ -106,6 +106,154 @@ let example3 = {
 
 let example4 = {
     ...example3,
+    name: 'Adam', //replaces the name attribute from unwrapped object
     address: 'NYC',
 }
 console.log(example4);
+
+
+
+
+//REST OPERATOR
+function add(...nums) {
+    console.log(nums);
+}
+add(1, 2, 4 , 4);
+
+*/
+
+
+
+// function add(...nums) {
+//     total = nums.reduce(function (accumulator, currentVal) {
+//         return accumulator + currentVal;
+//     }, 0);
+
+//     console.log(total);
+// }
+
+
+//ARROW FUNCTIONS.. does not have its own instance (.this)
+// function add(...vals) {
+//     let total = vals.reduce((accumulator , currentVal) => accumulator + currentVal , 0);
+//     console.log(total)
+// }
+
+// myArr = [10, 10, 2];
+//add(myArr, 3 , 4);
+
+
+
+//Default Params, sets my Arr to empty if 
+// function add(myArr = []) {
+//     console.log(myArr);
+// }
+
+
+
+
+
+
+//PADSTART() PADEND()
+// let example = 'John'
+
+// console.log(example.padStart(5, '-'));
+
+
+class Animal{
+    constructor(type, legs){
+        this.type = type;
+        this.legs = legs;
+    }
+
+    makeNoise(sound = 'Some noise'){
+        console.log(sound);
+    }
+
+    get allInfo(){
+        return `Type: ${this.type} Legs: ${this.legs}`;
+    }
+
+    static return10(){
+        return 10;
+    }
+}
+
+// let dog = new Animal('Dog', 4);
+// console.log(dog.allInfo);
+
+// class Cat extends Animal{
+//     constructor(type, legs, tail){
+//         super(type, legs);
+//         this.tail = tail;
+//     }
+
+//     makeNoise(sound = "meow"){
+//         console.log(sound);    
+//     }
+
+//     get allInfo(){
+//         return `Type: ${this.type} Legs: ${this.legs} hasTail: ${this.tail}`;
+//     }
+
+// }
+
+// let cat1 = new Cat('Cat', 4, true)
+
+// console.log(cat1.makeNoise());
+
+
+//ASYNC AWAIT FETCH PROMISES
+// const apiURL = "https://swapi.co/api/people";
+
+// function getTopNews() {
+//     fetch(apiURL)
+//     .then((res) => res.json())
+//     .then((json) => {
+//         console.log(json);
+//     }).catch((err) => {
+//         console.log(err);
+//     });
+// }
+
+// async function getTopCampers() {
+//     const response = await fetch(apiURL);
+//     const json = await response.json();
+
+//     console.log(json);
+// }
+// getTopCampers();
+
+// **************** 
+// function resolveAfter3Seconds(dogTest = false) {
+//     return new Promise((resolve, reject) => {
+//         if(dogTest){
+//             setTimeout(() => {
+//                 resolve(new Animal('Dog', 4));
+//             }, 0);
+//         }
+//         else{
+//             reject('Rejected. You dont have a dog.');
+//         }
+
+//     });
+// }
+// // //using then-catch.... -Note-finally runs first here NOTE- https://stackoverflow.com/questions/3837994/why-does-a-return-in-finally-override-try 
+// let hasDog = true;
+//     resolveAfter3Seconds(hasDog)
+//         .then(data => console.log(data))
+//         .catch(err => console.log(err))
+//         .finally(console.log('test'));
+
+// //using Async Aawait --- -Note-finally runs last here NOTE- https://dev.to/annarankin/finally-in-promises--trycatch-2c44 
+// async function getAsyncData() {
+//     try{
+//         console.log(await resolveAfter3Seconds(false));
+//     }catch(err){
+//         console.log(err); 
+//     }finally{
+//         console.log('test');
+//     }
+// }
+// getAsyncData();
+
